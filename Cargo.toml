@@ -1,0 +1,19 @@
+[package]
+name = "ethers_port_tmsBlog_connnectToBlockchain"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ethers = { version = "2.0.0", features =["rustls"]}
+ethers-core =  "2.0.0"
+ethers-providers ="2.0.0"
+ethers-contract = "2.0.0"
+rustls = "0.20.8"
+# hex = "0.4"
+tokio = { version = "1", features = ["full"]}
+dotenv = "0.15.0"
+serde = { version = "1.0.124", default-features = false, features = ["derive"] }
+serde_json = { version = "1.0.64", default-features = false, features = ["raw_value"] }
+# eyre = "0.6.8"
