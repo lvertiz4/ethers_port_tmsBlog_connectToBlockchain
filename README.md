@@ -1,4 +1,4 @@
-# Porting TMS-DEV blog on Connecting to the Ethereum Network using Ethers
+# Porting TMS-DEV blog on Connecting to the Ethereum Network using Ethers Library
 
 Inspired by TMS DEV Blog's wonderful tutorials on using Rust to interact with the Ethereum network, I decided to port one of his keystone tutorials using the Ethers library, rather than the web3 library that he used to connect to Ethereum.
 
