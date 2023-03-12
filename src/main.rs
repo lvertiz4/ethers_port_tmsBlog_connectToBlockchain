@@ -2,7 +2,7 @@ use ethers_core::{abi::Abi, utils::format_ether};
 use ethers_contract::Contract;
 use ethers::{prelude::*};
 // use dotenv;
-use std::{fs, env, str::{FromStr}, sync::Arc};
+use std::{fs, env, sync::Arc};
 
 
 #[tokio::main]
@@ -11,11 +11,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let provider = Provider::<Http>::try_from(&env::var("ALCHEMY_GOERLI_URL").unwrap())?;
 
-    let mut accounts: Vec<H160> = Vec::new();
-    accounts.push(H160::from_str(&env::var("ACCOUNT_ADDRESS").unwrap()).unwrap());
+    let account:H160 = env::var("ACCOUNT_ADDRESS").unwrap().parse::<Address>()?;
    
-    let balance = provider.get_balance(*&accounts[0], None).await?;
-    println!("Current balance of Account {:?} is approximately {} Ether", &accounts, format_ether(&balance));
+    let balance = provider.get_balance(*&account, None).await?;
+    println!("Current balance of Account {:?} is approximately {} Ether", &account, format_ether(&balance));
     
     let current_block = provider.get_block_number().await?;
     //U64 implements Display trait, so you can use the variable 'current_block" inside your println! macro
